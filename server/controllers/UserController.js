@@ -12,3 +12,15 @@ exports.authenticate = function(req,res,next){
     });
     auth(req,res,next);
 };
+
+
+exports.register = function(req,res){
+    var username = req.query['username'];
+    var password = req.query['password'];
+    var mobile = req.query['mobile'];
+    var location = req.query['location'];
+    var profileName = req.query['profilename'];
+    var email  = req.query['email'];
+};
+
+var x = { "1": { "2": { "3": { "4": { "5": [    {"c": 1},    {"b": 1}]}}}}};
