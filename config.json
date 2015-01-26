@@ -1,0 +1,14 @@
+{
+    "development" : {
+        "mongoUrl" : "mongodb://localhost/IGRAC",
+        "port" : 3000
+    },
+    "test" : {
+        "mongoUrl" : "mongodb://localhost/IGRAC",
+        "port" : 3000
+    },
+    "production" : {
+        "mongoUrl" : "mongodb://localhost/IGRAC",
+        "port" : 3000
+    }
+}

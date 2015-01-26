@@ -1,48 +1,40 @@
-var express = require('express'),
-    passport = require('passport'),
-    mongoose = require('mongoose'),
-    LocalStrategy = require('passport-local').Strategy;
-
-var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
-
-
+var express = require('express');
 var app = express();
+var db = require('./lib/db');
+var config = require('./config.json')[app.get('env')];
+var mongoose = require('mongoose');
+var User = require('./models/User');
+var Car = require('./models/Car');
+var routes = require('./routes');
 
-var config = require('./server/config/config')[env];
+var methodOverride =  require('method-override');
+var bodyParser = require('body-parser');
 
-require('./server/config/express')(app,config);
-require('./server/config/mongoose')(config);
+db.connect(config.mongoUrl);
 
-var User = mongoose.model('User');
-
-passport.use(new LocalStrategy(function(username,password,done){
-    User.findOne({userName:username}).exec(function(err,user){
-        if(user){
-            return done(null,user);
-        }else {
-            return done(null,false);
-        }
-    });
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.json());
+app.use(methodOverride(function(req,res){
+    if(req.body && typeof req.body == 'object' && '_method' in req.body){
+        var method = req.body._method;
+        delete req.body._method;
+        return method;
+    }
 }));
 
-passport.serializeUser(function(user,done){
-   if(user){
-       done(null,user.id);
-   }
+app.use(function(req, res, next) {
+    req.User = User;
+    req.Car = Car;
+    next();
 });
 
-passport.deserializeUser(function(id,done){
-    User.findOne({_id:id}).exec(function(err,user){
-        if(user){
-            return done(null,user);
-        }else {
-            return done(null,false);
-        }
-    });
-});
+app.get('/users/:username', routes.users.show);
+app.post('/users', routes.users.create);
+app.patch('/users/:username', routes.users.authenticate, routes.users.update);
 
-require('./server/config/routes')(app);
+module.exports = app;
 
-app.listen(config.port,function(){
-    console.log('Express started on http://localhost:'+config.port+';');
-});
+if(!module.parent){
+    app.listen(config.port);
+    console.log('(%s) app listening on port %s', app.get('env'), config.port);
+}
