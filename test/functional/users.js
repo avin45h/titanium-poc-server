@@ -23,9 +23,7 @@ describe('User-Routes', function (done) {
                 if (err) {
                     throw err;
                 }
-
-                res.body.should.have.properties('username', 'email', 'name');
-
+                res.body.should.have.properties('username', 'email', 'profilename');
                 done();
             });
     });
@@ -34,18 +32,25 @@ describe('User-Routes', function (done) {
         request(app)
             .post('/users')
             .send({
-                username: 'avinash',
+                username: 'avinasht1',
                 password: 'avinash_password',
-                email: 'avinash@intelligrape.com',
-                name: 'avinash'
+                email: 'avinasht1@intelligrape.com',
+                profilename: 'avinasht1',
+                "phonenumber": 9953737236,
+                "longitude": "2.3",
+                "latitude": "2.3"
+
             })
             .expect(201)
             .expect('Content-Type', /json/)
-            .expect('Location', '/users/newuser')
+            .expect('Location', '/users/avinasht1')
             .expect({
-                username: 'newuser',
-                email: 'newuser@example.com',
-                name: 'doe'
+                username: 'avinasht1',
+                email: 'avinasht1@intelligrape.com',
+                profilename: 'avinasht1',
+                "phonenumber": 9953737236,
+                "longitude": "2.3",
+                "latitude": "2.3"
             }, done);
     });
 

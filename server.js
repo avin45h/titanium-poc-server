@@ -10,7 +10,10 @@ var routes = require('./routes');
 var methodOverride =  require('method-override');
 var bodyParser = require('body-parser');
 
-db.connect(config.mongoUrl);
+db.connect(config.mongoUrl, function(err){
+    if(err) console.log("error occured connecting to DB");
+
+});
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
@@ -31,6 +34,8 @@ app.use(function(req, res, next) {
 app.get('/users/:username', routes.users.show);
 app.post('/users', routes.users.create);
 app.patch('/users/:username', routes.users.authenticate, routes.users.update);
+//app.get('/cars/:car', routes.cars.show);
+//app.post('/book/:car', routes.cars.book);
 
 module.exports = app;
 

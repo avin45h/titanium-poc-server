@@ -1,14 +1,14 @@
 {
     "development" : {
-        "mongoUrl" : "mongodb://localhost/IGRAC",
+        "mongoUrl" : "mongodb://avinash:igdefault@ds053718.mongolab.com:53718/igrac",
         "port" : 3000
     },
     "test" : {
-        "mongoUrl" : "mongodb://localhost/IGRAC",
+        "mongoUrl" : "mongodb://avinash:igdefault@ds053718.mongolab.com:53718/igrac",
         "port" : 3000
     },
     "production" : {
-        "mongoUrl" : "mongodb://localhost/IGRAC",
+        "mongoUrl" : "mongodb://avinash:igdefault@ds053718.mongolab.com:53718/igrac",
         "port" : 3000
     }
 }
