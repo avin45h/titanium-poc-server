@@ -40,6 +40,6 @@ app.patch('/users/:username', routes.users.authenticate, routes.users.update);
 module.exports = app;
 
 if(!module.parent){
-    app.listen(config.port);
+    app.listen(process.env.PORT || config.port);
     console.log('(%s) app listening on port %s', app.get('env'), config.port);
 }
