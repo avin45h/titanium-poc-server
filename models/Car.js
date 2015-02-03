@@ -48,7 +48,7 @@ var Car = new Schema({
     },
     userId: {
         type: ObjectId,
-        required: true,
+        required: false,
         ref: 'User'
     }
 });

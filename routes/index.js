@@ -2,5 +2,5 @@
 
 module.exports = {
     users: require('./users'),
-    notes: require('./cars')
+    cars: require('./cars')
 };

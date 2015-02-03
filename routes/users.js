@@ -29,6 +29,7 @@ exports.show = function (req, res, next) {
 };
 
 exports.create = function (req, res, next) {
+    console.log(req.body);
     var newUser = new req.User(_.pick(req.body, publicAttributes));
     req.User.register(newUser, req.body.password, function (err, userData) {
         if (err) {
