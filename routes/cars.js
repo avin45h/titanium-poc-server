@@ -30,12 +30,11 @@ exports.get = function (req, res, next) {
 
 
 exports.book = function (req, res, next) {
-    console.log(req.params.carname);
-    console.log(req.body.username);
-
+    var status = {success:true};
     Car.findOne({carname:req.params.carname},function(err,carData){
         if (err) {
             return next(err);
+            status = false;
         }
 
         if (!carData) {
@@ -50,6 +49,7 @@ exports.book = function (req, res, next) {
 
     });
 
+    res.render(status);
 };
 
 
