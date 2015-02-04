@@ -49,7 +49,7 @@ exports.book = function (req, res, next) {
 
     });
 
-    res.render(status);
+    res.send(status);
 };
 
 
