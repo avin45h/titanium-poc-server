@@ -5,8 +5,8 @@
         "cartype": "Sports",
         "vendornumber": "000",
         "vendorsite": "www.wikipedia.com",
-        "longitude": "2.3",
-        "latitude": "3.4"
+        "longitude": "77.333213",
+        "latitude": "28.544054"
     },
     {
         "carname": "Miura",
@@ -14,8 +14,8 @@
         "cartype": "SuperSports",
         "vendornumber": "000",
         "vendorsite": "www.wikipedia.com",
-        "longitude": "2.3",
-        "latitude": "3.4"
+        "longitude": "77.328461",
+        "latitude": "28.547117"
     },
     {
         "carname": "Lotus",
@@ -23,8 +23,8 @@
         "cartype": "Sedan",
         "vendornumber": "000",
         "vendorsite": "www.wikipedia.com",
-        "longitude": "2.3",
-        "latitude": "3.4"
+        "longitude": "77.337474",
+        "latitude": "28.547720"
     },
     {
         "carname": "Reiter",
@@ -32,8 +32,8 @@
         "cartype": "Coupe",
         "vendornumber": "000",
         "vendorsite": "www.wikipedia.com",
-        "longitude": "2.3",
-        "latitude": "3.4"
+        "longitude": "77.328526",
+        "latitude": "28.546495"
     },
     {
         "carname": "Bugatti",
@@ -41,8 +41,8 @@
         "cartype": "SUV",
         "vendornumber": "000",
         "vendorsite": "www.wikipedia.com",
-        "longitude": "2.3",
-        "latitude": "3.4"
+        "longitude": "77.346218",
+        "latitude": "28.535075"
     },
     {
         "carname": "Vintage Bugatti",
@@ -50,8 +50,8 @@
         "cartype": "Roadster",
         "vendornumber": "000",
         "vendorsite": "www.wikipedia.com",
-        "longitude": "2.3",
-        "latitude": "3.4"
+        "longitude": "77.345660",
+        "latitude": "28.534736"
     },
     {
         "carname": "GPX",
@@ -59,8 +59,8 @@
         "cartype": "Race",
         "vendornumber": "000",
         "vendorsite": "www.wikipedia.com",
-        "longitude": "2.3",
-        "latitude": "3.4"
+        "longitude": "77.343192",
+        "latitude": "28.537118"
     },
     {
         "carname": "Veyron",
@@ -68,8 +68,8 @@
         "cartype": "Race",
         "vendornumber": "000",
         "vendorsite": "www.wikipedia.com",
-        "longitude": "2.3",
-        "latitude": "3.4"
+        "longitude": "77.336562",
+        "latitude": "28.540165"
     },
     {
         "carname": "bearb",
@@ -77,8 +77,8 @@
         "cartype": "sedan",
         "vendornumber": "000",
         "vendorsite": "www.wikipedia.com",
-        "longitude": "2.3",
-        "latitude": "3.4"
+        "longitude": "77.345767",
+        "latitude": "28.535459"
     },
     {
         "carname": "Zonda",
@@ -86,7 +86,7 @@
         "cartype": "Roadster",
         "vendornumber": "000",
         "vendorsite": "www.wikipedia.com",
-        "longitude": "2.3",
-        "latitude": "3.4"
+        "longitude": "77.357354",
+        "latitude": "28.543301"
     }
 ]

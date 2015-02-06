@@ -41,7 +41,7 @@ app.patch('/users/:username', routes.users.authenticate, routes.users.update);
 app.get('/cars', routes.cars.show);
 app.get('/cars/:carname', routes.cars.get);
 app.post('/cars/:carname/book', routes.cars.book);
-app.get('/search/:lat/:long', routes.cars.search);
+app.post('/search', routes.cars.search);
 app.get('/user/:username/bookings', routes.cars.searchBookings);
 
 
