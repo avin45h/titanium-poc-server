@@ -46,6 +46,10 @@ var Car = new Schema({
         type: Boolean,
         default : false
     },
+    coverage: {
+        type: Array,
+        default : []
+    },
     userId: {
         type: ObjectId,
         required: false,

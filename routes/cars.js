@@ -55,6 +55,19 @@ exports.book = function (req, res, next) {
     res.send(status);
 };
 
+exports.coverage = function(req,res){
+    Car.aggregate([{$unwind:'$coverage'},{$group:{_id:"","coverage":{$addToSet:"$coverage"}}}],function(err,carData){
+        if (err) {
+            return next(err);
+        }
+
+        if (!carData) {
+            return res.status(404).send({ errors: ['Data not found'] });
+        }
+        res.send(carData[0].coverage);
+    });
+}
+
 
 exports.search = function(req,res,next){
     var searchParams = {bookstatus:false};

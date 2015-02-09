@@ -33,7 +33,7 @@ app.use(function(req, res, next) {
 });
 
 
-//carData();
+carData();
 
 app.get('/users/:username', routes.users.show);
 app.post('/users', routes.users.create);
@@ -43,6 +43,7 @@ app.get('/cars/:carname', routes.cars.get);
 app.post('/cars/:carname/book', routes.cars.book);
 app.post('/search', routes.cars.search);
 app.get('/user/:username/bookings', routes.cars.searchBookings);
+app.get('/coverage', routes.cars.coverage);
 
 
 module.exports = app;
