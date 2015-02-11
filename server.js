@@ -44,6 +44,7 @@ app.post('/cars/:carname/book', routes.cars.book);
 app.post('/search', routes.cars.search);
 app.get('/user/:username/bookings', routes.cars.searchBookings);
 app.get('/coverage', routes.cars.coverage);
+app.post('/availableCars',routes.cars.availableCars)
 
 
 module.exports = app;

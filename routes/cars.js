@@ -66,7 +66,23 @@ exports.coverage = function(req,res){
         }
         res.send(carData[0].coverage);
     });
-}
+};
+
+exports.availableCars = function(req,res){
+    var from = req.body.from;
+    var to = req.body.to;
+    Car.find({coverage : {$all : [from,to]},bookstatus:false},function(err,carData){
+        if (err) {
+            return next(err);
+        }
+
+        if (!carData) {
+            return res.status(404).send({ errors: ['Data not found'] });
+        }
+        res.send(carData);
+    })
+
+};
 
 
 exports.search = function(req,res,next){
