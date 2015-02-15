@@ -107,15 +107,3 @@ console.log(searchParams);
         res.send(carData);
     });
 };
-
-
-exports.searchBookings = function(req,res,next){
-    User.findOne({username:req.params.username},function(err,user){
-        if(err || !user){
-            return res.status(404).send({ errors: ['User not found'] });
-        }
-        Car.find({bookstatus:true,userId:user._id},function (err, carData) {
-            res.send(carData);
-        });
-    });
-};
