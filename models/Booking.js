@@ -22,6 +22,10 @@ var Booking = new Schema({
     to : {
         type: String,
         required: true
+    },
+    carname : {
+        type: String,
+        required: true
     }
 });
 

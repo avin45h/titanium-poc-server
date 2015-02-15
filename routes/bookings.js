@@ -5,25 +5,33 @@ var Booking = require("../models/Booking");
 
 exports.book = function (req, res, next) {
     var status = {success:true};
-    Car.findOne({carname:req.body.carname},function(err,carData){
+    var carname = req.body.carname;
+    var username = req.body.username;
+    var from = req.body.from;
+    var to = req.body.to;
+    console.log(carname);
+    Car.findOne({carname:carname},function(err,carData){
         if (err) {
+            status.success = false;
             return next(err);
-            status = false;
+
         }
 
         if (!carData) {
             return res.status(404).send({ errors: ['Car Data not found'] });
         }
 
-        User.findOne({username:req.body.username},function(err,user){
+
+        User.findOne({username:username},function(err,user){
             if(err || !user){
                 return res.status(404).send({ errors: ['User not found'] });
             }
             var booking = new Booking();
             booking.carId = carData._id;
             booking.userId = user._id;
-            booking.from = req.body.from;
-            booking.to = req.body.to;
+            booking.from = from;
+            booking.to = to;
+            booking.carname = carname;
             booking.save();
         });
 
@@ -37,8 +45,8 @@ exports.showBookings = function(req,res,next){
         if(err || !user){
             return res.status(404).send({ errors: ['User not found'] });
         }
-        Booking.find({userId:user._id},function (err, carData) {
-            res.send(carData);
+        Booking.find({userId:user._id},function (err, bookingData) {
+            res.send(bookingData);
         });
     });
 };

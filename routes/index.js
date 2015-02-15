@@ -2,5 +2,6 @@
 
 module.exports = {
     users: require('./users'),
-    cars: require('./cars')
+    cars: require('./cars'),
+    bookings: require('./bookings')
 };
