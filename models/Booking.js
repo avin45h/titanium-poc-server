@@ -23,9 +23,25 @@ var Booking = new Schema({
         type: String,
         required: true
     },
+    dot_start : {
+        type: Date,
+        required : true
+    },
+    dot_end : {
+        type: Date,
+        required : true
+    },
+    bookingdate : {
+        type: Date,
+        required : true
+    },
     carname : {
         type: String,
-        required: true
+        required : true
+    },
+    carimageurl : {
+        type: String,
+        required : true
     }
 });
 

@@ -11,6 +11,12 @@ var Car = new Schema({
         required: true,
         validate: validator.validate('isLength', 3, 255)
     },
+    carID :{
+        type: String,
+        required: true,
+        validate: validator.validate('isLength', 3, 255),
+        unique : true
+    },
     carimageurl: {
         type: String,
         required: true,

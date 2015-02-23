@@ -16,6 +16,8 @@ db.connect(config.mongoUrl, function(err){
 
 });
 
+app.use(express.static('public'));
+
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 app.use(methodOverride(function(req,res){
@@ -35,17 +37,25 @@ app.use(function(req, res, next) {
 
 carData();
 
-app.get('/users/:username', routes.users.show);
-app.post('/users', routes.users.create);
-app.patch('/users/:username', routes.users.authenticate, routes.users.update);
-app.get('/cars', routes.cars.show);
-app.get('/cars/:carname', routes.cars.get);
-app.post('/cars/:carname/book', routes.cars.book);
-app.post('/book', routes.bookings.book);
-app.post('/search', routes.cars.search);
-app.get('/user/:username/bookings', routes.bookings.showBookings);
-app.get('/coverage', routes.cars.coverage);
-app.post('/availableCars',routes.cars.availableCars)
+app.get('/',function(req,res,next){
+   res.render('CARRENTALENDPOINTS.html');
+});
+
+app.post('/login',routes.users.authenticate,routes.users.loginmsg); //complete
+app.post('/user', routes.users.create); //complete
+app.get('/coverage', routes.cars.coverage); //complete
+app.get('/cartypes', routes.cars.cartypes); //complete
+app.get('/user/:username', routes.users.show); // complete
+app.post('/availableCars',routes.cars.availableCars); //complete
+app.post('/book', routes.bookings.book); // complete
+app.get('/availableCars/:carname',routes.cars.get); //complete
+app.get('/user/:username/bookings', routes.bookings.showBookings); //complete
+app.get('/user/:username/bookings/:bookingid', routes.bookings.showBooking); // complete
+
+
+//todo : document in drive
+app.patch('/users/:username',routes.users.update);
+
 
 
 module.exports = app;
